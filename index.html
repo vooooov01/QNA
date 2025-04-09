@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학습 Q&A 게시판</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>학습 Q&A 게시판</h1>
+        <p>궁금한 교과목에 대해 질문하고 답변해보세요!</p>
+    </header>
+
+    <main>
+        <section id="question-form">
+            <h2>질문하기</h2>
+            <form id="new-question-form">
+                <div class="form-group">
+                    <label for="username">작성자</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">교과목</label>
+                    <input type="text" id="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="question-title">제목</label>
+                    <input type="text" id="question-title" required>
+                </div>
+                <div class="form-group">
+                    <label for="question-content">질문 내용</label>
+                    <textarea id="question-content" rows="5" required></textarea>
+                </div>
+                <button type="submit">질문 등록</button>
+            </form>
+        </section>
+
+        <section id="questions-container">
+            <h2>질문 목록</h2>
+            <div id="questions-list">
+                <!-- 질문들이 여기에 JavaScript로 동적으로 추가됩니다 -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 학습 Q&A 게시판</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
