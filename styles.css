@@ -73,11 +73,17 @@ button {
     font-size: 1rem;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, opacity 0.3s;
 }
 
 button:hover {
     background-color: #303f9f;
+}
+
+button:disabled {
+    background-color: #9fa8da;
+    cursor: not-allowed;
+    opacity: 0.7;
 }
 
 /* 질문 카드 스타일 */
@@ -161,6 +167,26 @@ footer {
     margin-top: 2rem;
 }
 
+/* 로딩 및 에러 메시지 스타일 */
+.loading, .error, .no-questions {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+    font-style: italic;
+}
+
+.loading {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38"><defs><linearGradient id="a" x1="8.042%" y1="0%" x2="65.682%" y2="23.865%"><stop stop-color="%233f51b5" stop-opacity="0" offset="0%"/><stop stop-color="%233f51b5" stop-opacity=".631" offset="63.146%"/><stop stop-color="%233f51b5" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><g transform="translate(1 1)"><path d="M36 18c0-9.94-8.06-18-18-18" stroke="url(%23a)" stroke-width="2"><animateTransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18" dur="0.9s" repeatCount="indefinite"/></path><circle fill="%233f51b5" cx="36" cy="18" r="1"><animateTransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18" dur="0.9s" repeatCount="indefinite"/></circle></g></g></svg>') no-repeat center top;
+    padding-top: 50px;
+}
+
+.error {
+    color: #d32f2f;
+    background-color: #ffebee;
+    border-left: 4px solid #d32f2f;
+    text-align: left;
+}
+
 /* 반응형 디자인 */
 @media (max-width: 768px) {
     header {
@@ -175,4 +201,42 @@ footer {
         flex-direction: column;
         align-items: flex-start;
     }
+}
+
+/* 애니메이션 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.question-card {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* 툴팁 스타일 */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 120px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
 } 
